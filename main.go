@@ -13,7 +13,7 @@ import (
 func main() {
     token := flag.String("token", "", "JWT token")
     outOfBandURL := flag.String("url", "", "a URL for Out-of-band interactions")
-    crack := flag.Bool("crack", false, "Optional secret-key crack for HS encrypted JWTs")
+    crack := flag.String("crack", "", "Specify a path for optional secret-key crack for HS encrypted JWTs")
 
     flag.Parse()
 
@@ -39,7 +39,7 @@ func main() {
     exploits.ExternalInteractions(decodedToken, parts, *outOfBandURL)
     exploits.ForcedErrors(decodedToken,parts)
     
-    if *crack {exploits.CrackHmac(parts)}
+    if *crack != "" {exploits.CrackHmac(*crack, parts)}
 
     helpers.PrintAllFormatted(exploits.AllPayloads)
 

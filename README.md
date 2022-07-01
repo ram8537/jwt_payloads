@@ -1,5 +1,6 @@
 
 
+
 # jwt_payloads (Go)
 *jwt_payloads generates a list of modified tokens from a single JWT token. It uses known exploit methods like null signature, JKU injection, and kid injection amongst others.* (the wiki page summarises all the exploits)
 
@@ -34,8 +35,8 @@ You must specify a token and URL (to test for out-of-band interactions). I recom
 `~/go/bin/jwt_payloads -token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzIzMzQiLCJuYW1lIjoiVGF5bG9yIiwiaWF0IjoxNTE2MjM5MDIyfQ.hyuSywEQ2r65Y6goXYXlmU44_KFP_moZ9N4JT_E_meY -url test.com > output.txt`  
 
 ### Additional arguments (crack HSxxx tokens)
-If you're token is symmetrically signed (alg: HSxxx), you can specify an optional '-crack' flag to test your token against a list of common secrets
-`~/go/bin/jwt_payloads -token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzIzMzQiLCJuYW1lIjoiVGF5bG9yIiwiaWF0IjoxNTE2MjM5MDIyfQ.hyuSywEQ2r65Y6goXYXlmU44_KFP_moZ9N4JT_E_meY -url hello.com -crack`  
+If you're token is symmetrically signed (alg: HSxxx), you can specify an optional '-crack' flag with a **full path** to a file of common passwords. You can find a list [here](https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list).
+`~/go/bin/jwt_payloads -token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzIzMzQiLCJuYW1lIjoiVGF5bG9yIiwiaWF0IjoxNTE2MjM5MDIyfQ.hyuSywEQ2r65Y6goXYXlmU44_KFP_moZ9N4JT_E_meY -url hello.com -crack /Users/yourusername/Desktop/common-jwt-secrets.txt > output.txt`  
 
 ## Suggested Workflow
 
