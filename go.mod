@@ -1,4 +1,4 @@
-module github.com/ram8537/jwt-payloads
+module github.com/ram8537/jwt_payloads
 
 go 1.18
 

@@ -6,8 +6,8 @@ import (
 	"log"
 
 	"github.com/golang-jwt/jwt"
-	"github.com/ram8537/jwt-payloads/exploits"
-	"github.com/ram8537/jwt-payloads/helpers"
+	"github.com/ram8537/jwt_payloads/exploits"
+	"github.com/ram8537/jwt_payloads/helpers"
 )
 
 func main() {
