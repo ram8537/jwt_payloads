@@ -141,26 +141,6 @@ func SignBlankPassword(modifiedSegments []string, segmentB64 string, segmentLoca
 }
 
 func PrintAllFormatted(allPayloads map[string]string) {
-	for key, val := range allPayloads {
-		fmt.Println("\n" + key + ":" + val + "\n")
-		decoded, _, _ := new(jwt.Parser).ParseUnverified(val, jwt.MapClaims{})
-
-		header, err := json.MarshalIndent(decoded.Header, "", "  ")
-		if err != nil {
-			fmt.Println("error:", err)
-		}
-		fmt.Println(string(header))
-
-		payload, err := json.MarshalIndent(decoded.Claims, "", "  ")
-		if err != nil {
-			fmt.Println("error:", err)
-		}
-		fmt.Println(string(payload))
-
-		fmt.Println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-	}
-
-	fmt.Println("Full output")
 	for _, val := range allPayloads {
 		fmt.Println(val)
 

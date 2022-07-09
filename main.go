@@ -25,9 +25,7 @@ func main() {
         log.Fatal(err)
     } 
     exploits.BrokenSignature(decodedToken)
-    exploits.PersistenceCheck(*token, 1) // Persistence Check 1
     exploits.ReflectedClaims(decodedToken, parts)
-    exploits.PersistenceCheck(*token, 2) //Persistence Check 2
     exploits.BlankPassword(decodedToken)
     exploits.NullSignature(parts) 
     exploits.AlgNone(decodedToken, parts) 
